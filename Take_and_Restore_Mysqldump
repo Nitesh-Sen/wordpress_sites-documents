@@ -1,8 +1,8 @@
 For takedump mysqldump
-mysqldump -h database-2.cwvgkgatdbuz.us-east-1.rds.amazonaws.com -uadmin -ppassword wpDB > mysql`date +%d-%b-%Y_%H:%M:%S`.sql
+mysqldump -h database-2.cxxxxxxxxxz.us-east-1.rds.amazonaws.com -uadmin -ppassword wpDB > mysql`date +%d-%b-%Y_%H:%M:%S`.sql
 
 
 
 
 for restore mysqldump
-mysql -h database-2.cwvgkgatdbuz.us-east-1.rds.amazonaws.com -u admin -ppassword WpDB  < mysql22-Sep-2022_12\:33\:30.sql
+mysql -h database-2.cxxxxxxxxz.us-east-1.rds.amazonaws.com -u admin -ppassword WpDB  < mysql22-Sep-2022_12\:33\:30.sql
