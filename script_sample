@@ -1,0 +1,23 @@
+#!/bin/bash
+Green='\033[0;92m'
+Red='\033[0;91m'
+NC='\033[0m' # No Color
+sum=0
+for a in apache2 php-all-dev php-apcu
+        do
+        echo $a
+        sum=`expr $sum + 1`
+        which $a &> /dev/null
+        if [ $? != 0 ] ; then
+                echo -e "$sum:- $a packages is not available"   
+                echo -e "        ${Green} packages is going to install $NC"
+                echo -e "Please wait"
+                apt install $a -y &> /dev/null
+        else
+
+                echo -e "$sum:- ${Red} $a package is available no need to install $NC"
+        fi
+        echo ""
+        sleep 2
+
+done
