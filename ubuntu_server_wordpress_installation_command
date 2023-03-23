@@ -1,0 +1,10 @@
+sudo apt update -y
+sudo apt install apache2 -y
+sudo systemctl start apache2
+sudo systemctl enable apache2
+ls /var/www/html/index.html
+sudo rm /var/www/html/index.html
+which php
+sudo apt install php -y
+ls /tmp/latest.tar.gz || wget https://wordpress.org/latest.tar.gz -O /tmp/latest.tar.gz 
+ls -lhtr /tmp/wordpress || tar -xzvf /tmp/latest.tar.gz -C /tmp/
