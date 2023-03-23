@@ -1,0 +1,29 @@
+#!/bin/bash
+Green='\033[0;92m'
+Red='\033[0;91m'
+Yellow='\033[0;33m'
+NC='\033[0m' # No Color
+current_time=$(date "+%Y.%m.%d-%H.%M.%S")
+sum=0
+for a in index.php wp-activate.php wp-comments-post.php wp-cron.php wp-load.php wp-settings.php xmlrpc.php license.txt wp-admin wp-config-sample.php  wp-includes wp-login.php wp-signup.php readme.html wp-blog-header.php wp-content wp-links-opml.php wp-mail.php wp-trackback.php
+        do
+        sum=`expr $sum + 1`
+        ls /var/www/html/$a &> /dev/null
+	if [ $? == 0 ] ; 
+	then
+		echo -e "$sum:-${Green} $a file $a is already available no need to cp $NC"
+		sleep 2
+	else
+		echo -e "$sum:-${Red} file $a is not available and its going to move $NC"
+		echo -e "    Please wait, it will take some time ................................."
+		sudo cp -r /tmp/wordpress/$a /var/www/html/ &> /dev/null
+		if [ $? == 0 ]
+		then 
+			echo -e "${Green}    File $a are copied $NC "
+		else
+			echo -e "${Red}    File $a are not copied $NC "
+		fi
+	fi
+	echo ""
+	sleep 2
+done
